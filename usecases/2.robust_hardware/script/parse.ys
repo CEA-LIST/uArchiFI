@@ -1,0 +1,12 @@
+read_verilog -sv src/ibex_verifypin_v1.v
+chparam -set SecureIbex 1 ibex_simple_system
+prep -top ibex_simple_system
+rename -top ibex_simple_system
+uniquify; hierarchy -check
+
+sim -zinit -clock clk_sys -resetn rst_sys_n -n 83 -rstlen 3 -w
+select -module ibex_simple_system i:rst_sys_n*
+delete -input; setundef -undriven -one
+select -clear;
+
+write_rtlil out/secure_ibex_verifypin.il

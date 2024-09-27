@@ -1,0 +1,131 @@
+
+verifypin.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .vectors:
+
+00100000 <_vectors_start>:
+	...
+  100080:	0e00006f          	jal	zero,100160 <reset_handler>
+
+Disassembly of section .text:
+
+00100084 <verifyPIN_6>:
+  100084:	001007b7          	lui	a5,0x100
+  100088:	05500713          	addi	a4,zero,85
+  10008c:	001006b7          	lui	a3,0x100
+  100090:	1ce78ca3          	sb	a4,473(a5) # 1001d9 <g_authenticated>
+  100094:	1d868703          	lb	a4,472(a3) # 1001d8 <g_ptc>
+  100098:	863e                	c.mv	a2,a5
+  10009a:	00075563          	bge	a4,zero,1000a4 <verifyPIN_6+0x20>
+  10009e:	05500513          	addi	a0,zero,85
+  1000a2:	8082                	c.jr	ra
+  1000a4:	177d                	c.addi	a4,-1
+  1000a6:	1ce68c23          	sb	a4,472(a3)
+  1000aa:	001007b7          	lui	a5,0x100
+  1000ae:	00100737          	lui	a4,0x100
+  1000b2:	1d474803          	lbu	a6,468(a4) # 1001d4 <g_userPin>
+  1000b6:	1d07c503          	lbu	a0,464(a5) # 1001d0 <g_cardPin>
+  1000ba:	05500593          	addi	a1,zero,85
+  1000be:	00a80463          	beq	a6,a0,1000c6 <verifyPIN_6+0x42>
+  1000c2:	0aa00593          	addi	a1,zero,170
+  1000c6:	1d470713          	addi	a4,a4,468
+  1000ca:	1d078793          	addi	a5,a5,464
+  1000ce:	00174703          	lbu	a4,1(a4)
+  1000d2:	0017c783          	lbu	a5,1(a5)
+  1000d6:	00f70463          	beq	a4,a5,1000de <verifyPIN_6+0x5a>
+  1000da:	0aa00593          	addi	a1,zero,170
+  1000de:	001007b7          	lui	a5,0x100
+  1000e2:	1d478793          	addi	a5,a5,468 # 1001d4 <g_userPin>
+  1000e6:	0027c703          	lbu	a4,2(a5)
+  1000ea:	001007b7          	lui	a5,0x100
+  1000ee:	1d078793          	addi	a5,a5,464 # 1001d0 <g_cardPin>
+  1000f2:	0027c783          	lbu	a5,2(a5)
+  1000f6:	faf714e3          	bne	a4,a5,10009e <verifyPIN_6+0x1a>
+  1000fa:	05500793          	addi	a5,zero,85
+  1000fe:	faf590e3          	bne	a1,a5,10009e <verifyPIN_6+0x1a>
+  100102:	478d                	c.li	a5,3
+  100104:	1cf68c23          	sb	a5,472(a3)
+  100108:	faa00793          	addi	a5,zero,-86
+  10010c:	1cf60ca3          	sb	a5,473(a2)
+  100110:	0aa00513          	addi	a0,zero,170
+  100114:	8082                	c.jr	ra
+
+00100116 <initialize>:
+  100116:	001007b7          	lui	a5,0x100
+  10011a:	05500713          	addi	a4,zero,85
+  10011e:	1ce78ca3          	sb	a4,473(a5) # 1001d9 <g_authenticated>
+  100122:	470d                	c.li	a4,3
+  100124:	001007b7          	lui	a5,0x100
+  100128:	1ce78c23          	sb	a4,472(a5) # 1001d8 <g_ptc>
+  10012c:	001007b7          	lui	a5,0x100
+  100130:	1c078ba3          	sb	zero,471(a5) # 1001d7 <g_countermeasure>
+  100134:	20100693          	addi	a3,zero,513
+  100138:	001007b7          	lui	a5,0x100
+  10013c:	1cd79823          	sh	a3,464(a5) # 1001d0 <g_cardPin>
+  100140:	1d078793          	addi	a5,a5,464
+  100144:	00e78123          	sb	a4,2(a5)
+  100148:	001007b7          	lui	a5,0x100
+  10014c:	60500713          	addi	a4,zero,1541
+  100150:	1ce79a23          	sh	a4,468(a5) # 1001d4 <g_userPin>
+  100154:	1d478793          	addi	a5,a5,468
+  100158:	471d                	c.li	a4,7
+  10015a:	00e78123          	sb	a4,2(a5)
+  10015e:	8082                	c.jr	ra
+
+00100160 <reset_handler>:
+  100160:	00000093          	addi	ra,zero,0
+  100164:	8106                	c.mv	sp,ra
+  100166:	8186                	c.mv	gp,ra
+  100168:	8206                	c.mv	tp,ra
+  10016a:	8286                	c.mv	t0,ra
+  10016c:	8306                	c.mv	t1,ra
+  10016e:	8386                	c.mv	t2,ra
+  100170:	8406                	c.mv	s0,ra
+  100172:	8486                	c.mv	s1,ra
+  100174:	8506                	c.mv	a0,ra
+  100176:	8586                	c.mv	a1,ra
+  100178:	8606                	c.mv	a2,ra
+  10017a:	8686                	c.mv	a3,ra
+  10017c:	8706                	c.mv	a4,ra
+  10017e:	8786                	c.mv	a5,ra
+  100180:	8806                	c.mv	a6,ra
+  100182:	8886                	c.mv	a7,ra
+  100184:	8906                	c.mv	s2,ra
+  100186:	8986                	c.mv	s3,ra
+  100188:	8a06                	c.mv	s4,ra
+  10018a:	8a86                	c.mv	s5,ra
+  10018c:	8b06                	c.mv	s6,ra
+  10018e:	8b86                	c.mv	s7,ra
+  100190:	8c06                	c.mv	s8,ra
+  100192:	8c86                	c.mv	s9,ra
+  100194:	8d06                	c.mv	s10,ra
+  100196:	8d86                	c.mv	s11,ra
+  100198:	8e06                	c.mv	t3,ra
+  10019a:	8e86                	c.mv	t4,ra
+  10019c:	8f06                	c.mv	t5,ra
+  10019e:	8f86                	c.mv	t6,ra
+  1001a0:	00000117          	auipc	sp,0x0
+  1001a4:	0e010113          	addi	sp,sp,224 # 100280 <_stack_start>
+
+001001a8 <_start>:
+  1001a8:	4501                	c.li	a0,0
+  1001aa:	4581                	c.li	a1,0
+  1001ac:	012000ef          	jal	ra,1001be <main>
+  1001b0:	000202b7          	lui	t0,0x20
+  1001b4:	02a1                	c.addi	t0,8
+  1001b6:	4305                	c.li	t1,1
+  1001b8:	0062a023          	sw	t1,0(t0) # 20000 <_stack_len+0x1ff80>
+
+001001bc <_sink>:
+  1001bc:	a001                	c.j	1001bc <_sink>
+
+001001be <main>:
+  1001be:	1141                	c.addi	sp,-16
+  1001c0:	c606                	c.swsp	ra,12(sp)
+  1001c2:	3f91                	c.jal	100116 <initialize>
+  1001c4:	35c1                	c.jal	100084 <verifyPIN_6>
+  1001c6:	40b2                	c.lwsp	ra,12(sp)
+  1001c8:	4501                	c.li	a0,0
+  1001ca:	0141                	c.addi	sp,16
+  1001cc:	8082                	c.jr	ra

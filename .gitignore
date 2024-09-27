@@ -1,0 +1,5 @@
+build
+*.btor2
+*.smt2
+*.il
+*.vcd

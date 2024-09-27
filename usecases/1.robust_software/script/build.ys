@@ -1,0 +1,11 @@
+read_rtlil out/cv32e40p_verifypin.il
+flatten
+
+select t:*ff* %co t:*ff* %d s:1:7 %i
+fault_rtlil -effect diff -timing 60:80 -cnt 1
+cd; opt
+
+async2sync
+dffunmap
+write_btor out/cv32e40p_verifypin.btor2
+write_smt2 -wires out/cv32e40p_verifypin.smt2

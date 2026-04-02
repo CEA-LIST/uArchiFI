@@ -3,3 +3,4 @@ build
 *.smt2
 *.il
 *.vcd
+__pycache__

@@ -1,0 +1,11 @@
+read_rtlil out/secure_ibex_verifypin_sandboxing.il
+flatten
+
+select t:*ff* %co t:*ff* %d w:u_top.gen_lockstep.u_ibex_lockstep* %i
+fault_rtlil -cnt 5
+cd; opt
+
+async2sync
+dffunmap
+write_btor out/secure_ibex_verifypin.btor2
+write_smt2 -wires out/secure_ibex_verifypin.smt2

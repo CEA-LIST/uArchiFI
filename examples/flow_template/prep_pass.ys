@@ -1,0 +1,16 @@
+# Read SystemVerilog (supports advanced constructs)
+read_verilog -sv -defer -formal <input_design>.v
+
+# Set top module
+prep -top <top_module>
+
+# Normalize top name
+rename -top <top_module>
+
+# Ensure unique module instances for optimization
+uniquify
+hierarchy -top <top_module>
+
+# Export RTLIL
+write_rtlil out/<design>.il
+

@@ -1,0 +1,49 @@
+read_verilog ./addr.v ./tb_addr.v 
+
+prep -top tb_addr
+
+uniquify; hierarchy -top tb_addr
+
+async2sync
+
+#write_rtlil adder_rtlil.rtil
+
+#sim -zinit -clock clk -n 5 -w
+
+delete -input; setundef -undriven -zero
+
+select -clear;
+
+#write_rtlil addr.rtlil
+
+plugin -i fault_rtlil
+
+#read_rtlil addr.rtlil
+
+select tb_addr.dut/a tb_addr.dut/b
+
+setattr -set fault 1
+cd;
+
+
+#show -prefix ./addr -format svg
+
+flatten -scopename 
+
+#show -prefix ./addr_flatten_Nft -format svg
+select a:fault=1 w:*$flatten* %d
+# SELECT NULL
+select n:*a n:*b
+
+fault_rtlil -cnt 1 -timing 1 -width 4
+
+write_rtlil result.rtlil
+
+#cd; opt
+select -clear
+show -prefix ./result -format svg -width
+async2sync
+dffunmap
+
+write_smt2 -wires ./result.smt2
+

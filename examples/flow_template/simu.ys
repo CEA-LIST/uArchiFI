@@ -1,0 +1,23 @@
+read_rtlil out/<design>.il
+
+# Convert async logic (REQUIRED)
+select t:$check
+async2sync
+select -clear
+
+# Run simulation
+sim -zinit \
+    -clock clk \
+    -reset reset \
+    -rstlen 3 \
+    -n 12 \
+    -w \
+    -fst ./waves.fst
+
+
+select -module <top_module> i:reset*
+delete -input
+setundef -undriven -zero
+select -clear
+
+write_rtlil out/<design_simu>.il

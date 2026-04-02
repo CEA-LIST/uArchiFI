@@ -1,0 +1,1 @@
+ERROR: fault rtlil Number of selected signals is 0.

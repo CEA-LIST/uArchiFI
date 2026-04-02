@@ -1,0 +1,24 @@
+read_verilog -sv src/ibex_aes_sandboxing.v
+chparam -set SecureIbex 0 ibex_simple_system
+prep -top ibex_simple_system
+rename -top ibex_simple_system
+uniquify; hierarchy -check
+
+sim -zinit -clock clk_sys -resetn rst_sys_n -n 4081 -rstlen 3 -w
+select -module ibex_simple_system i:rst_sys_n*
+delete -input; setundef -undriven -one
+select -clear;
+
+write_rtlil out/simple_ibex_sandboxing.il
+delete
+read_rtlil out/simple_ibex_sandboxing.il
+flatten
+
+select w:u_top.u_ibex_core.ex_block_i*
+fault_rtlil -cnt 2 -effect reset
+cd; opt
+
+async2sync
+dffunmap
+write_btor out/simple_ibex_aes.btor2
+write_smt2 -wires out/simple_ibex_aes.smt2

@@ -1,28 +1,44 @@
-BUILD_DIR = build
-YOSYS_GIT = https://github.com/YosysHQ/yosys
-YOSYS_TAG = yosys-0.25
-YOSYS_DIR = $(BUILD_DIR)/yosys
-YOSYS_CMD = $(YOSYS_DIR)/yosys
-COMPILER  = gcc #or clang
+# Copyright (C) 2026 Commissariat à l'énergie atomique et aux énergies
+# alternatives (CEA)
+#
+# Licensed under the LGPL 2.1 license (the "License"); you may not use
+# this file except in compliance with the License.
+#
+# You may obtain a copy of the License at :
+# https://www.gnu.org/licenses/old-licenses/lgpl-2.1.fr.html
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+# express or implied.
+# See the License for the specific language governing permissions and 
+# limitations under the License.
+
+BUILD_DIR = $(shell realpath build)
+YOSYS_TAG = yosys-0.61
+YOSYS_CMD = $(shell which yosys)
+FAULT_PASS = fault_rtlil
 
 
-.PHONY: build clean_yosys help check_build
+.PHONY: install help check_yosys
 
 help:
-	@echo "run 'make build' to build yosys with the fault2mux pass"
-	@echo "Further help for building yosys: https://github.com/YosysHQ/yosys#building-from-source"
+	@echo "run 'make install' to build the fault_rtlil pass"
+	@echo "default install location : /home/oss-cad-suite/share/yosys/plugins"
 
-build:
-	@mkdir build
-	@cd $(BUILD_DIR) && git clone $(YOSYS_GIT) 
-	@cd $(YOSYS_DIR) && git checkout -b fault2mux $(YOSYS_TAG)
-	@cp -r src/fault $(YOSYS_DIR)/passes
-	@cd $(YOSYS_DIR) && make config-$(COMPILER) && make -j2
+fault_rtlil: check_yosys $(BUILD_DIR)
+	yosys-config --build $(BUILD_DIR)/$(FAULT_PASS).so src/passes/fault/$(FAULT_PASS).cc 
 
-check_build:
+install: fault_rtlil
+	cp $(BUILD_DIR)/$(FAULT_PASS).so /home/oss-cad-suite/share/yosys/plugins
+
+$(BUILD_DIR):
+	mkdir -p $@
+
+check_yosys:
 ifeq (,$(wildcard $(YOSYS_CMD)))
-	@echo "yosys command does not exist! Please run 'make build' first"
+	@echo "yosys command not found!"
 endif
 
-clean_yosys:
+clean:
 	rm -rf $(BUILD_DIR)

@@ -1,0 +1,32 @@
+read_rtlil ./out/<design_simu>.il
+
+plugin -i fault_rtlil
+
+# Select fault targets
+select <selection_expression>
+
+# Mark selected signals
+setattr -set fault_signals 1
+cd;
+
+# Flatten design (needed for global fault control)
+flatten
+
+# Exclude internal flatten signals
+select a:fault_signals=1 w:*$flatten* %d
+
+# Inject faults
+fault_rtlil -cnt 3 -timing 1
+
+# Optimize
+cd;
+opt
+
+# Prepare for formal export
+async2sync
+dffunmap
+
+# Export models
+write_btor -x out/<design>.btor2
+write_smt2 -wires out/<design>.smt2
+

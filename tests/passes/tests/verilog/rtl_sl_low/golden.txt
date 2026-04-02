@@ -1,0 +1,1 @@
+Warning: fault_rtlil Number of faults to inject is higher then select signals, this could lead to unexpected results

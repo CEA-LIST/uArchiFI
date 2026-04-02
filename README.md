@@ -225,7 +225,10 @@ write_rtlil out/<design>.il
 read_rtlil out/<design>.il
 
 # Convert async logic (REQUIRED)
+
+select t:$check
 async2sync
+select -clear
 
 # Run simulation
 sim -zinit \
@@ -426,7 +429,7 @@ fault_rtlil -bypass
 ---
 ### Why `flatten` is important
 
->[!NOTE] Why `flatten` is Important
+>[!NOTE]
 >
 >Required for:
 >
@@ -483,7 +486,7 @@ SMT2 / BTOR2 (Formal Verification)
 
 ## Common Pitfalls
 
->[!CAUTION] Common Pitfalls
+>[!CAUTION]
 >
 >* Forgetting `async2sync` → incorrect simulation/formal behavior
 >* Overly broad `select` → excessive fault injection
@@ -494,7 +497,7 @@ SMT2 / BTOR2 (Formal Verification)
 
 ## Recommended Workflow Checks
 
->[!TIP] Recommended Workflow Checks
+>[!TIP]
 >
 >* Run `hierarchy -check` during preparation
 >* Use small simulation cycles first
@@ -590,7 +593,7 @@ For each iteration:
 
 ---
 
->[!NOTE] Notes
+>[!NOTE]
 >
 >* The constraint file (`constr.smtc`) is incrementally updated across iterations
 >* Debug mode (`--debug`) streams solver output directly to the terminal

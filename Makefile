@@ -27,7 +27,7 @@ help:
 	@echo "default install location : /home/oss-cad-suite/share/yosys/plugins"
 
 fault_rtlil: check_yosys $(BUILD_DIR)
-	yosys-config --build $(BUILD_DIR)/$(FAULT_PASS).so src/passes/fault/$(FAULT_PASS).cc 
+	yosys-config --build $(BUILD_DIR)/$(FAULT_PASS).so ./src/passes/fault/$(FAULT_PASS).cc 
 
 install: fault_rtlil
 	cp $(BUILD_DIR)/$(FAULT_PASS).so /home/oss-cad-suite/share/yosys/plugins

@@ -1,0 +1,3 @@
+Total count 1 
+bit num: 0 
+Current CNT_WIDTH '2' 

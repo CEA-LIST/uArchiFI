@@ -1,1 +1,1 @@
-Warning: fault_rtlil Number of faults to inject is higher then select signals, this could lead to unexpected results
+ERROR: fault_rtlil Number of faults to inject is higher then selected signals, this could lead to unexpected results, aborting. To bypass use -bypass

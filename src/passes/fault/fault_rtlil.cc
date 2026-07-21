@@ -145,7 +145,7 @@ struct FaultRTLILPass : public Pass {
     if (total_count <= 0)
       log_error("fault rtlil Number of selected signals is 0.\n");
     double round_up_sel = std::log2(static_cast<double>(total_count));
-    CNT_WIDTH = static_cast<int>(std::ceil(round_up_sel));
+    CNT_WIDTH = std::max(1,static_cast<int>(std::ceil(round_up_sel))) + 1; //Flush + 1 with sel to prevent 1+1= 0 overflow
 
     size_t argidx;
     for (argidx = 1; argidx < args.size(); argidx++) {
@@ -220,8 +220,13 @@ struct FaultRTLILPass : public Pass {
       }
       if (args[argidx] == "-width" && argidx + 1 < args.size()) {
         CNT_WIDTH = stoi(args[++argidx]);
-        log("CNT_WIDTH set to : %d \n", CNT_WIDTH);
-        continue;
+        if (CNT_WIDTH > 0) {
+          log("CNT_WIDTH set to : %d \n", CNT_WIDTH);
+          continue;
+        } else {
+          log_error("Invalid value for -width, it must be > 0");
+          break;
+        }
       }
       if (args[argidx] == "-bypass") {
         set_bypass = true;
@@ -330,35 +335,67 @@ struct FaultRTLILPass : public Pass {
           // Create and connect the mux
           module->addMux(NEW_ID, wire, fault_wire, fault_sel, new_q);
         } else {
+          bool mux_added = false;
           // Connect cell output ports to the fault controller
           for (auto cell : vector<Cell *>(module->cells())) {
-            for (auto &conn : cell->connections())
+            // Accumulators for output chunks of
+            // currently explored cell
+            vector<SigChunk> in_sig, out_sig, fault_sig;
+            for (auto &conn : cell->connections()) {
               if (cell->output(conn.first)) {
                 vector<SigChunk> chunks = conn.second.chunks();
                 for (auto &chunk : chunks)
-                  if (chunk.wire == wire) chunk.wire = new_q;
+                  if (chunk.wire == wire) {
+                    out_sig.push_back(SigChunk(chunk));
+                    fault_sig.push_back(
+                        SigChunk(fault_wire, chunk.offset, chunk.width));
+                    chunk.wire = new_q;
+                    in_sig.push_back(SigChunk(chunk));
+                  }
                 cell->setPort(conn.first, chunks);
               }
+            }
+            if (!in_sig.empty()) {
+              // module->new_connections(new_conns);
+
+              // Add a mux in the end of each cell
+              // to prevent the fault instrumentation
+              // to add combinational loops.
+              // Adding on multiplexer globally
+              // may induce combinational loops
+              // with buses fed back by themselves
+              // (e.g. sig_a[16] = sig_a[15] & sig_b)
+              module->addMux(NEW_ID, SigSpec(in_sig), SigSpec(fault_sig),
+                             fault_sel, SigSpec(out_sig));
+              mux_added = true;
+            }
           }
 
           // Handle constants driving the wire
           // Let makes the assumption that connections is Pair<SigSpec lhs,
-          // SigSpec rhs> such that lhs <- rhs We just need to test lhs as we
-          // want to modify connection in order to obtain: new_q <- rhs
+          // SigSpec rhs> such that lhs <- rhs We just need to test lhs as
+          // we want to modify connection in order to obtain: new_q <- rhs
           std::vector<SigSig> new_conns;
+          vector<SigChunk> const_sig, fault_sig, out_sig;
           for (auto &conn : module->connections()) {
             auto lhs = conn.first.to_sigbit_vector();
             for (size_t i = 0; i < lhs.size(); i++) {
               if (lhs[i].wire == wire) {
+                out_sig.push_back(SigChunk(lhs[i].wire, lhs[i].offset, 1));
+                fault_sig.push_back(SigChunk(fault_wire, lhs[i].offset, 1));
+                // log("offset", lhs[i].offset);
                 lhs[i].wire = new_q;
+                const_sig.push_back(SigChunk(lhs[i].wire, lhs[i].offset, 1));
               }
             }
             new_conns.push_back(SigSig(lhs, conn.second));
           }
           module->new_connections(new_conns);
 
-          // Create and connect the mux
-          module->addMux(NEW_ID, new_q, fault_wire, fault_sel, wire);
+          if (!const_sig.empty()) {
+            module->addMux(NEW_ID, SigSpec(const_sig), SigSpec(fault_sig),
+                           fault_sel, SigSpec(out_sig));
+          }
         }
 
         if (permanent) {
@@ -393,6 +430,7 @@ struct FaultRTLILPass : public Pass {
           SigSpec diff;
           SigSpec xorsig;
           SigSpec shift;
+          SigSpec eq;
 
           switch (effect) {
             case DIFF:
@@ -402,8 +440,12 @@ struct FaultRTLILPass : public Pass {
               break;
             case FLIP:
               log("Constrain fault effect to FLIP\n");
+              //diff = module->Not(NEW_ID, new_q);
+              //module->connect(fault_wire, diff);
               diff = module->Not(NEW_ID, new_q);
-              module->connect(fault_wire, diff);
+              eq = module->Eq(NEW_ID, fault_wire, diff);
+              module->addAssume(NEW_ID, eq, State::S1);
+
               break;
             case XOR:
               log("Constrain fault effect to XOR\n");

@@ -21,6 +21,7 @@ import re
 import pty
 import sys
 import json
+import signal
 from pathlib import Path
 from collections import defaultdict
 from tooling.iterator import cex_iterator as cex
@@ -165,13 +166,34 @@ class Iterator:
             return process.returncode, fullout, ""
         else:
             with Live(Spinner("dots", text="Model checker running..."), console=console):
-                result = subprocess.run(
+                proc = subprocess.Popen(
                     cmd,
-                    capture_output=True,
-                    timeout=self.single_timeout,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
                     text=True,
+                    start_new_session=True,
                 )
-            return result.returncode, result.stdout, result.stderr
+
+                try:
+                    stdout, stderr = proc.communicate(timeout=self.single_timeout)
+                    return proc.returncode, stdout, stderr
+
+                except subprocess.TimeoutExpired as e:
+                    # kill the whole process group
+                    os.killpg(proc.pid, signal.SIGKILL)
+                    stdout, stderr = proc.communicate()
+                    e.stderr = stderr
+                    e.stdout = stdout
+                    
+                    raise
+             #   result = subprocess.run(
+             #       cmd,
+             #       capture_output=True,
+             #       timeout=self.single_timeout,
+             #       text=True,
+             #       preexec_fn=os.setsid,
+             #   )
+            #return result.returncode, result.stdout, result.stderr
 
     # Log
     def write_log(self, run_folder, stdout, stderr):

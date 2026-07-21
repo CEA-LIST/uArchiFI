@@ -1,1 +1,342 @@
-A Contributor Agreement will be soon publishedA Contributor Agreement will be soon published
+(English version starts at line 124)
+====================================
+Contrat de cession de droits de propriété intellectuelle pour µArchiFI
+
+Contributeur personne morale ou personne physique
+
+Merci d’avoir choisi de contribuer au projet de logiciel libre µArchiFI, détenu par le CEA, établissement public français de recherche à caractère scientifique, technique et industriel, dont le siège est situé 25, rue Leblanc, Bâtiment le Ponant D, 75015 Paris - FRANCE, immatriculé au Registre du Commerce et des Sociétés de Paris, sous le numéro RCS Paris B 775 685 019, via les activités de son institut LIST et représenté par le Chef du DSCIN (« Nous »).
+
+PREAMBULE
+Ce contrat de contribution (ci-après le « Contrat ») a pour objet de définir les droits qui Nous sont cédés par les Contributeurs.
+
+En cas de doute ou de différences d'interprétation, la version française du Contrat prévaut sur la version anglaise.
+
+Merci d’accepter ce Contrat pour le rendre applicable.
+
+L’acceptation du Contrat Vous engage, merci de le lire avec attention avant de l’accepter et d’en conserver une copie.
+
+1. Définitions
+
+« Contributeur » ou « Vous » signifie toute personne physique majeure ou toute Personne Morale au nom de laquelle une Contribution Nous a été Soumise. Si Vous êtes salarié et que Vous Soumettez la Contribution à ce titre, Vous déclarez disposer de l’autorisation de votre employeur Personne Morale ou de l’autorité pour Vous engager ce Contrat. Dans ce cas, « Vous » (/Votre ») représente cette Personne Morale. Si Vous êtes une personne physique majeure sous un régime de protection juridique (tutelle, curatelle…), merci d’obtenir au préalable l’accord de la personne titulaire de l’autorité légale. 
+
+« Personne Morale » signifie toute entité juridique qui n’est pas une personne physique, qu’elle que soit sa nature (privée, publique civile, commerciale, associative …), telle que notamment toute institution, entreprise, société, organisme public ou université. 
+
+« Affiliés » signifie toute autre Personne Morale qui contrôle, est contrôlée directement ou indirectement ou est sous le même contrôle direct ou indirect que ladite Personne Morale. Pour les besoins de cette définition, on entend par contrôle :
+(a) la détention directe ou indirecte de 50% ou plus du capital social de cette Personne Morale, ou la détention directe ou indirecte de la majorité des droits de vote des actionnaires ou des associés de cette Personne Morale,
+(b) la détention, directe ou indirecte, de fait ou de droit, du pouvoir de décision au sein de ladite Personne Morale.
+
+« Contribution » signifie toute œuvre au sens de la législation sur le droit d’auteur que Vous nous avez Soumis et pour lesquels vous êtes titulaire des Droits de PI. A des fins de clarification, la Contribution inclut les modifications ou ajouts à une Contribution que Vous Nous avez précédemment Soumise.
+
+« Droits de PI » « Droits de Propriété Intellectuelle » signifie tous les droits de propriété intellectuelle rattachés à l’œuvre dont Vous ou vos Affiliés (pour les Personnes Morales) êtes l’auteur ou l’ayant droit, c’est-à-dire les droits patrimoniaux, droits moraux, droits voisins le cas échéant, pour la durée totale de leur existence, extension comprise. 
+
+« Logiciel » signifie tout œuvre que Nous mettons à disposition de tierces parties. Si le Contrat est susceptible d’être applicable à plus d’un projet logiciel que Nous gérons, le terme Logiciel signifie l’œuvre pour laquelle Vous avez Soumis une Contribution. Après votre Soumission de la Contribution, cette dernière peut être intégrée dans le Logiciel. 
+
+« Soumission » (Soumis, Soumettre) signifie toute communication quelle que soit sa forme (notamment et sans que la liste soit limitative via courrier électronique, système de contrôle de code source, système de suivi des problèmes que Nous gérons ou faisons gérer) soumise dans le but de discuter et améliorer le Logiciel. Est expressément exclue toute communication pour laquelle Vous avez clairement indiqué par écrit : « Ne constitue pas une Contribution ». 
+
+« Date de Soumission » signifie la date à laquelle vous Nous avez Soumis une Contribution. 
+
+« Date d’Effet » signifie la date à laquelle le contrat commence à produire ses effets, soit à la Date de Soumission.
+	
+« Parties » signifie Vous et Nous. 
+
+2. Cession des Droits de PI
+
+2.1 Cession des Droits de PI
+
+(a) A la Soumission de la Contribution, Vous Nous cédez pour le monde entier tous les Droits de PI attachés à cette Contribution, sous réserve du respect des dispositions de l’article 2.3 (« Licence de diffusion »). 
+
+Cette cession est exclusive, cessible, gratuite, irrévocable, pour le monde entier, pour la durée desdits Droits de PI, inclut le droit de concéder des sous-licences à des tiers et porte sur les droits suivants : 
+  • droit de reproduire de manière permanente ou provisoire tout ou partie de la Contribution, par tout moyen et sous toute forme ; 
+  • droit de charger, afficher, utiliser, stocker sur tout support tout ou partie de la Contribution ;
+  • droit d’observer, tester, étudier le fonctionnement de la Contribution afin de déterminer les idées et principes qui sous-tendent tout élément constitutif de la Contribution ; 
+  • droit de modifier, adapter, corriger, traduire, arranger la Contribution et reproduire la version ainsi modifiée dans les mêmes conditions ;
+  • droit de représenter, diffuser, distribuer, communiquer la Contribution au public par tout moyen ;
+  • droit de mise sur le marché à titre onéreux ou gratuit y compris la location de la Contribution par tout moyen. 
+
+(b) S’il Vous était légalement impossible de Nous céder les Droits de PI listés dans les conditions de l’article 2.1(a), Vous Nous concédez par les présentes une licence exclusive, gratuite, cessible, irrévocable, pour le monde entier et pour la durée de protection des Droits de PI, avec droit de sous-licencier à tout tiers, Nous permettant d’exercer les droits précités. Vous ne conservez aucun droit d’exercer les Droits de PI listés, ceci sous réserve du respect des dispositions de l’article 2.3 (« Licence de diffusion »). 
+
+(c) S’il Vous était légalement impossible de Nous céder les Droits de PI dans les conditions de l’article 2.1(a) ni de Nous concéder une licence dans les conditions de l’article 2.1(b), Vous renoncez par les présentes, de manière irrévocable, à revendiquer et invoquer ces Droits de PI contre Nous, nos éventuels cessionnaires, licenciés ou ayant-droit. Ceci sous réserve du respect des dispositions de l’article 2.3 (« Licence de diffusion »).
+
+(d) Lors du transfert des Droits de PI listés à l’article 2.1 (a) dans les conditions des articles précédents, Nous nous engageons à Vous concéder simultanément une licence non exclusive, gratuite, cessible, irrévocable, pour le monde entier, pour la durée des Droits de PI concernés, incluant le droit de sous-licencier à tout tiers, permettant l’exercice de ces Droits de PI sur la Contribution. Notre intention est de Vous concéder une licence la plus large possible permettant l’exercice de Droits de PI les plus similaires possibles à ceux que Vous Nous avez transférés. Cette licence porte sur la seule Contribution à l’exclusion de toute licence sur le Logiciel. 
+
+2.2 Propriété industrielle
+
+A la Date de Soumission Vous :
+  (i) Nous cédez gratuitement le droit au titre pour tout titre de propriété industrielle (brevet, certificat d’utilité, certificat complémentaire de protection ou tout autre titre de propriété industrielle) que Vous pourriez demander au titre de la Contribution ;
+  (ii) Nous concédez une licence mondiale, irrévocable, pour la durée des Droits de PI concernés, non exclusive, cessible, incluant le droit de sous-licencier à tout tiers, sur tout brevet, certificat d’utilité, certificat complémentaire de protection, ou tout autre titre de propriété industrielle, obtenu ou pour lequel vous avez déposé une demande auprès d’un office ou pour lequel vous avez une licence et portant sur la Contribution. Les droits ainsi concédés sont (i) le droit de fabriquer, faire fabriquer, offrir, mettre dans le commerce, utiliser, importer, exporter, transborder et détenir aux fins précitées le produit objet du titre, ou le produit obtenu directement par un procédé objet du titre (ii) utiliser et offrir d’utiliser tout procédé objet du titre.
+  (iii) Nous concédez le droit de transférer toute ou partie de la Contribution de toute autre manière possible et notamment en combinaison avec tout ou partie du Logiciel.
+  
+Ces droits sont cédés et/ ou concédés sous réserve du respect des dispositions de l’article 2.3 (« Licence de diffusion »).
+
+2.3 Licence de diffusion
+
+Si Nous intégrons tout ou partie de la Contribution dans un Logiciel, Nous Nous réservons le droit, de définir sous quels termes et conditions nous concédons des licences à des tiers, étant rappelé que nous pouvons diffuser la Contribution intégrée à un Logiciel sous différentes licences dont les termes et conditions ne seraient pas les mêmes. A des fins de clarifications ces licences pourraient notamment être qualifiées de licences libres, licences open source, licences propriétaires, licences permissives, licences commerciales etc. Nous nous engageons à toujours rendre accessible la Contribution via une/des licences dont les termes sont ceux de la/des licences que Nous utilisons pour diffuser le Logiciel à la Date de Soumission.
+
+2.4 Droits Moraux
+
+Les Droits Moraux de l’auteur ne sont pas affectés par le Contrat dans la mesure où ils sont reconnus et ne peuvent pas faire l’objet de renonciation en vertu de la loi applicable. Néanmoins, Vous devez indiquer Votre nom lors de la Soumission de Votre Contribution Votre qualité d’auteur et la date de création de la Contribution.
+
+2.5 Nos droits
+
+Nous ne sommes pas tenus d’intégrer tout ou partie de Votre contribution au sein du Logiciel ; Nous nous réservons le droit d’intégrer les Contributions que Nous jugeons pertinentes, ce que Vous reconnaissez et acceptez.
+
+3. Contrat 
+
+Vous confirmez que :
+(a) Vous êtes légalement en droit de vous engager au titre du Contrat conformément à la définition de Contributeur de l’article 1.
+(b) Vous ou Vos Affiliés (si vous êtes une Personne Morale) êtes titulaires des Droits de PI, et demandes de titre de propriété industrielle portant sur la Contribution nécessaires au respect des dispositions de l’article 2 (« Cessions des Droits de PI »).
+(c) Les cessions et concessions organisées par les dispositions de l’article 2 (« Cessions des Droits de PI ») ne contreviennent pas aux droits que Vous ou Vos Affilés (si vous êtes une Personne Morale) auriez concédé à des tiers, y compris à votre employeur.
+
+Le Contrat est susceptible d’être applicable à plus d’un projet logiciel que Nous gérons.
+
+4. Entrée en vigueur
+
+Le Contrat entre en vigueur à sa Date d’effet.
+
+5. Exclusion de garantie
+
+SANS PREJUDICE DE LA GARANTIE EXPRESSE FORMULEE A L’ARTICLE 3 (« Contrat ») ET SOUS RESERVE DE DISPOSITIONS LEGALES CONTRAIRES, LA CONTRIBUTION EST SOUMISE EN L’ETAT SANS GARANTIE D’AUCUNE SORTE, EXPRESSE OU TACITE. NOTAMMENT NI VOUS NI NOUS N’APPORTONS DE GARANTIE QUANT A SON CARACTERE COMMERCIAL, DE SECURITE, DE QUALITE, DE PROPRIETE TECHNIQUE, DE CONFORMITE A UN USAGE SPECIFIQUE, DE NON CONTREFAÇON DE DROITS DE TIERS.
+
+6. Exclusion de responsabilité
+
+DANS LES LIMITES DE CE QUE LA LOI AUTORISE, IL EST EXPRESSEMENT CONVENU QU’EN AUCUN CAS, NI VOTRE RESPONSABILITE NI NOTRE RESPONSABILITE NE POURRA ETRE ENGAGEE AU TITRE DU PRESENT CONTRAT POUR TOUTE PERTE DE PROFIT, PERTE D’ECONOMIE, PERTE DE DONNEES, DOMMAGES INDIRECTS.
+
+7. Divers
+
+7.1
+LE CONTRAT EST RÉGI PAR LE DROIT FRANÇAIS À L’EXCLUSION DE SES RÈGLES DE CONFLIT DE LOI. LES PARTIES DECIDENT EXPRESSEMENT D’EXCLURE L’APPLICATION DE LA CONVENTION DES NATIONS UNIES SUR LES CONTRATS DE VENTE INTERNATIONALE DE MARCHANDISES DANS LES CAS OÙ CETTE CONVENTION AURAIT PU SUPPLANTER LE DROIT FRANÇAIS DANS LE CADRE DE LA NEGOCIATION ET L’EXECUTION DE DU CONTRAT OU DE TOUT LITIGE LIE AU CONTRAT.
+
+EN CAS DE DIFFICULTE SUR L'INTERPRETATION, L'EXECUTION OU LA RESILIATION DU CONTRAT, ET SAUF EN CAS D’URGENCE JUSTIFIANT LA SAISINE D’UNE JURIDICTION COMPETENTE STATUANT EN REFERE, LES PARTIES S'EFFORCERONT DE RESOUDRE LEUR DIFFEREND A L'AMIABLE.  AU CAS OU LES PARTIES NE PARVIENDRAIENT PAS A RESOUDRE LEUR DIFFEREND DANS UN DELAI DE TROIS (3) MOIS A COMPTER DE SA SURVENANCE, LE LITIGE SERA PORTE PAR LA PARTIE LA PLUS DILIGENTE DEVANT LES TRIBUNAUX FRANÇAIS COMPETENTS A PARIS.
+
+7.2
+Le Contrat traduit l’ensemble des engagements pris par Vous et Nous vis-à-vis de Votre Contribution. Il annule et remplace tous accords écrits et verbaux, remis ou échangés entre Vous et Nous relatifs au même objet.
+
+7.3
+Si le Contrat devait être cédé par Vous ou Nous à une tierce partie, cette cession ne pourrait être effective que sous réserve que la partie cessionnaire s’engage par écrit à respecter l’intégralité des droits et obligations décrits au Contrat.
+
+7.4
+Toute renonciation ou omission, quelle qu’en soit la durée et le nombre, à invoquer l’existence ou la violation totale ou partielle d’une quelconque des clauses du Contrat ne peut constituer une modification, une suppression de ladite clause ou une renonciation à invoquer l’application desdites clauses ou d’autres clauses.
+
+7.5
+Dans l'hypothèse où une ou plusieurs des dispositions du Contrat serait contraire à une loi ou à un texte légalement applicable, cette loi ou ce texte prévaudrait et les Parties feront les modifications nécessaires pour se conformer à cette loi ou à ce texte. Toutes les autres dispositions du Contrat resteraient en vigueur et les Parties feraient leurs meilleurs efforts pour trouver une solution alternative acceptable dans l'esprit du Contrat.
+
+====================================
+µArchiFI IP Rights Assignment Agreement
+
+Entity or Individual Contributor
+
+Thank you for your interest in contributing to the µArchiFI open-source project, owned by CEA - a French state-owned research entity with a scientific, technical or industrial activity duly organised under the laws of France and having its registered office located at 25 rue Leblanc, Bâtiment « Le Ponant D » - 75015 Paris, FRANCE, and declared at the Paris Register of Commerce and Trade (“Registre du Commerce et des Sociétés de Paris”) under the following registration number: R.C.S. Paris B 775 685 019, in the frame of its activities of its LIST Institute and represented by Head of the DSCIN Department   ("We" or "Us").
+
+PREAMBLE
+
+The purpose of this contributor agreement ("Agreement") is to clarify and document the rights granted by Contributors to Us.
+
+In case of doubt or differences of interpretation, the French version shall prevail over the English version of the Agreement.
+
+To make this document effective and get started, please accept the Agreement.
+
+Please read it carefully before accepting as it is a legally binding document and keep a copy for your records.
+
+1. Definitions
+
+“Contributor” or “You” means any adult individual or Legal Entity, on behalf of who/whom Submits a Contribution to Us. If You are an employee and submit the Contribution as part of your employment, You represent that you have the authority and/or required authorization in binding the Entity to this Agreement. In such case "You" (/"Yours") shall refer to such Entity. If You are an adult under guardianship or conservatorship, please obtain prior consent from the person with legal authority.
+
+“Legal Entity” means an entity which is not a natural person, whatever its nature (private, public, civil, commercial, associative…), including but not limited to any institution, company, corporation, partnership, government agency or university.
+
+“Affiliate” means any other Legal Entities that controls, is under the direct or indirect control of that Legal Entity or under the same direct or indirect control as that Legal Entity. For the purposes of this definition, “control” means: 
+(a) the direct or indirect holding of more than 50% of the nominal value of the issued share capital in that Legal Entity, or of a majority of the voting rights of the shareholders or associates of that Legal Entity; 
+(b) the direct or indirect holding, in fact or in law, of decision-making powers in that Legal Entity.
+"Contribution" means any work of authorship that is Submitted by You to Us in which You own or assert ownership of the IP Rights. For the sake of clarity, Contribution includes any modifications or additions to a Contribution already Submitted by You to Us.
+
+"IP Rights" means all rights protecting works of authorship owned or controlled by You or Your Affiliates (if you are a Legal Entity), including economic rights, moral and neighboring rights, as appropriate, for the full term of their existence including any extensions by You.
+
+"Material" means the work of authorship which is made available by Us to third parties. When this Agreement covers more than one software project, the Material means the work of authorship to which the Contribution was Submitted. After You Submit the Contribution, it may be included in the Material.
+
+"Submit" means any form of electronic, verbal or written communication sent to Us or our representatives, including but not limited to electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of Us for the purpose of discussing and improving the Material, but excluding communication that is conspicuously marked or otherwise designated in writing by You as "Not a Contribution."
+
+2. Grant of IP Rights
+
+2.1 IP Rights Assignment
+
+(a) At the time the Contribution is Submitted, You assign to Us all right, title, and interest worldwide in all IP Rights covering the Contribution; provided that this transfer is conditioned upon compliance with Section 2.3 (“Outbound license”).
+
+This includes the worldwide, exclusive, royalty-free, transferable, irrevocable, for the duration of the IP Rights, with rights to sublicense through multiple tiers of sublicensees, rights to: 
+	◦ reproduce permanently or temporarily of all or part of the Contribution, by any or all means and in any or all form, 
+	◦ to load, display, run, store on any or all medium, perform,
+	◦ observe, test, study its operation so as to determine the ideas and principles behind any or all constituent elements of the Contribution,
+	◦  modify, adapt, correct, translate, arrange and exploit the resulting contribution in the same conditions;
+	◦ distribute, publish, transmit and communicate the Contribution to the general public on any or all medium and by any or all means and
+	◦ the right to market, either in consideration of a fee, or free of charge, including renting, one or more copies of the Contribution by any means. 
+
+(b) To the extent that any of the IP Rights in Section 2.1(a) cannot be assigned by You to Us, You grant to Us a, worldwide, exclusive, royalty-free, transferable, irrevocable, for the IP rights duration, license under such non-assigned rights as listed in Section 2.1(a), with rights to sublicense through multiple tiers of sublicensees, to practice such non-assigned IP Right provided that this license is conditioned upon compliance with Section 2.3 (“Outbound License”).
+
+(c) To the extent that any of the IP Rights in Section 2.1(a) can neither be assigned nor licensed by You to Us as in Section 2.1(b), You irrevocably waive and agree never to assert such rights against Us, any of our successors in interest, or any of our licensees, either direct or indirect; provided that this license is conditioned upon compliance with Section 2.3 (“Outbound License”).
+
+(d) Upon such transfer of IP Rights to Us, to the maximum extent possible, We immediately grant to You a, worldwide, non-exclusive, royalty-free, transferable, irrevocable license under such IP Rights covering the Contribution, for the duration of the IP Rights, with rights to sublicense through multiple tiers of sublicensees, to practice the rights listed in section 2.1 (a) attached to the Contribution. The intention is that this license will be as broad as possible and to provide You with IP Rights as similar as possible to the IP Rights that You transferred. This license back is limited to the Contribution and does not provide any rights to the Material.
+
+2.2 Industrial property
+
+At the Submission Date You:
+   (i) assign to Us Your right to claim for  any industrial property title (patent, utility patent, supplementary protection certificate or any industrial property title) linked to the Contribution ;
+   (ii) grant to Us a worldwide, non-exclusive, transferable, royalty-free, irrevocable license, with the right to sublicense these rights to multiple tiers of sublicensees, for the duration of the IP Rights, for claims or titles (patent, patent claims, utility patent or claims, supplementary protection certificate or claims, or any other industrial property title or claims) which You own, control or have the right to grant, on the Contribution. Rights granted are (i) the rights to make, have made, offer, sell, offer for sale, use, import, export, transship and possess for such uses any product covered by the title/claim, or the product directly obtained by the process covered by the title/claim (ii) use and offer to use any process covered by the title/ claim.
+   (iii) grant to Us the right to otherwise transfer the Contribution and the Contribution in combination with the Material (and portions of such combination).
+
+This license is granted provided that it complies with the terms of Section 2.3 (“Outbound License”).
+
+2.3 Outbound License
+
+If We include Your Contribution or part of it in a Material, We may license the Contribution to third parties under any license whatever the terms and conditions, including under several licenses that would have different terms and conditions. For clarification purposes, such licenses may be qualified as notably, copyleft, free, open source, permissive, commercial, or proprietary licenses. We agree to also license the Contribution under the terms of the license or licenses which We are using for the Material on the Submission Date.
+
+2.4 Moral Rights
+
+Moral Rights remain unaffected to the extent they are recognized and not waivable by applicable law. Notwithstanding, any Contribution shall be Submitted with the indication of Your name as author of the Contribution and the date of its creation.
+
+2.5 Our Rights
+
+You acknowledge that We are not obligated to use Your Contribution - in whole or in part - as part of the Material and may decide to include any Contribution We consider appropriate.
+
+3. Agreement
+
+You confirm that:
+(a) You have the legal authority to enter into this Agreement as regards to the Contributor definition in Section 1.
+(b) You or Your Affiliates (if you are a Legal Entity) own the IP Rights and patent claims covering the Contribution which are required to grant the rights under Section 2 (“Grant of IP Rights”).
+(c) The assignments or grant of rights under Section 2 (“Grant of IP Rights”) does not violate any grant of rights which You or Your Affiliates (if you are a Legal Entity) have made to third parties, including Your employer. 
+
+The Agreement may cover more than one software project managed by Us.
+
+4. Entry into force
+The Agreement shall take effect from its Effective Date.
+
+5. Disclaimer
+
+EXCEPT FOR THE EXPRESS WARRANTIES IN SECTION 3 (“Agreement”), AND TO THE EXTEND PERMITTED BY LAW, THE CONTRIBUTION IS PROVIDED "AS IS". MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US AND BY US TO YOU.
+
+6. Damage Waiver
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL YOU OR US BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, DAMAGES ARISING OUT OF THIS AGREEMENT.
+
+7. Miscellaneous
+
+7.1
+THIS AGREEMENT IS GOVERNED BY AND CONSTRUED IN ACCORDANCE WITH THE LAWS OF FRANCE EXCLUDING ITS CONFLICTS OF LAW PROVISIONS. UNDER CERTAIN CIRCUMSTANCES, THE GOVERNING LAW IN THIS SECTION MIGHT BE SUPERSEDED BY THE UNITED NATIONS CONVENTION ON CONTRACTS FOR THE INTERNATIONAL SALE OF GOODS ("UN CONVENTION") AND THE PARTIES INTEND TO AVOID THE APPLICATION OF THE UN CONVENTION TO THIS AGREEMENT AND, THUS, EXCLUDE THE APPLICATION OF THE UN CONVENTION IN ITS ENTIRETY TO THIS AGREEMENT.
+IN THE EVENT OF DIFFICULTY CONCERNING THE INTERPRETATION, THE PERFORMANCE OR THE TERMINATION OF THE AGREEMENT, AND UNLESS URGENCY JUSTIFIES SEEKING INTERIM RELIEF FROM A COURT OF COMPETENT JURISDICTION, THE PARTIES SHALL SEEK TO RESOLVE THEIR DISPUTE AMICABLY, IF THE PARTIES ARE UNABLE TO RESOLVE THEIR DISPUTE WITHIN THREE (3) MONTHS FROM THE DATE ON WHICH IT AROSE, THE MATTER SHALL BE REFERRED TO THE COURTS OF COMPETENT JURISDICTION IN PARIS BY THE PARTY THAT FIRST TAKES ACTION.
+
+7.2
+This Agreement sets out the entire agreement between You and Us for Your Contributions to Us and overrides all other agreements or understandings whether written or oral, between You and Us and having the same purpose.
+
+7.3
+If You or We assign the rights or obligations received through this Agreement to a third party, as a condition of the assignment, that third party must agree in writing to abide by all the rights and obligations in the Agreement.
+
+7.4
+The failure of either party to require performance by the other party of any provision of this Agreement in one situation shall not affect the right of a party to require such performance at any time in the future. A waiver of performance under a provision in one situation shall not be considered a waiver of the performance of the provision in the future or a waiver of the provision in its entirety.
+
+7.5
+In the event that one or more of the provisions hereof were to conflict with a current or future applicable act or legislative text, said act or legislative text shall prevail and the Parties shall make the necessary amendments so as to comply with said act or legislative text. All other provisions shall remain effective and the Parties shall use best endeavours to find an acceptable alternative solution compatible with the spirit of this Agreement.
+open-source project, owned by CEA - a French state-owned research entity with a scientific, technical or industrial activity duly organised under the laws of France and having its registered office located at 25 rue Leblanc, Bâtiment « Le Ponant D » - 75015 Paris, FRANCE, and declared at the Paris Register of Commerce and Trade (“Registre du Commerce et des Sociétés de Paris”) under the following registration number: R.C.S. Paris B 775 685 019, in the frame of its activities of its LIST Institute and represented by Head of the DSCIN Department   ("We" or "Us").
+
+PREAMBLE
+
+The purpose of this contributor agreement ("Agreement") is to clarify and document the rights granted by Contributors to Us.
+
+In case of doubt or differences of interpretation, the French version shall prevail over the English version of the Agreement.
+
+To make this document effective and get started, please accept the Agreement.
+
+Please read it carefully before accepting as it is a legally binding document and keep a copy for your records.
+
+1. Definitions
+
+“Contributor” or “You” means any adult individual or Legal Entity, on behalf of who/whom Submits a Contribution to Us. If You are an employee and submit the Contribution as part of your employment, You represent that you have the authority and/or required authorization in binding the Entity to this Agreement. In such case "You" (/"Yours") shall refer to such Entity. If You are an adult under guardianship or conservatorship, please obtain prior consent from the person with legal authority.
+
+“Legal Entity” means an entity which is not a natural person, whatever its nature (private, public, civil, commercial, associative…), including but not limited to any institution, company, corporation, partnership, government agency or university.
+
+“Affiliate” means any other Legal Entities that controls, is under the direct or indirect control of that Legal Entity or under the same direct or indirect control as that Legal Entity. For the purposes of this definition, “control” means: 
+(a) the direct or indirect holding of more than 50% of the nominal value of the issued share capital in that Legal Entity, or of a majority of the voting rights of the shareholders or associates of that Legal Entity; 
+(b) the direct or indirect holding, in fact or in law, of decision-making powers in that Legal Entity.
+"Contribution" means any work of authorship that is Submitted by You to Us in which You own or assert ownership of the IP Rights. For the sake of clarity, Contribution includes any modifications or additions to a Contribution already Submitted by You to Us.
+
+"IP Rights" means all rights protecting works of authorship owned or controlled by You or Your Affiliates (if you are a Legal Entity), including economic rights, moral and neighboring rights, as appropriate, for the full term of their existence including any extensions by You.
+
+"Material" means the work of authorship which is made available by Us to third parties. When this Agreement covers more than one software project, the Material means the work of authorship to which the Contribution was Submitted. After You Submit the Contribution, it may be included in the Material.
+
+"Submit" means any form of electronic, verbal or written communication sent to Us or our representatives, including but not limited to electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of Us for the purpose of discussing and improving the Material, but excluding communication that is conspicuously marked or otherwise designated in writing by You as "Not a Contribution."
+
+2. Grant of IP Rights
+
+2.1 IP Rights Assignment
+
+(a) At the time the Contribution is Submitted, You assign to Us all right, title, and interest worldwide in all IP Rights covering the Contribution; provided that this transfer is conditioned upon compliance with Section 2.3 (“Outbound license”).
+
+This includes the worldwide, exclusive, royalty-free, transferable, irrevocable, for the duration of the IP Rights, with rights to sublicense through multiple tiers of sublicensees, rights to: 
+	◦ reproduce permanently or temporarily of all or part of the Contribution, by any or all means and in any or all form, 
+	◦ to load, display, run, store on any or all medium, perform,
+	◦ observe, test, study its operation so as to determine the ideas and principles behind any or all constituent elements of the Contribution,
+	◦  modify, adapt, correct, translate, arrange and exploit the resulting contribution in the same conditions;
+	◦ distribute, publish, transmit and communicate the Contribution to the general public on any or all medium and by any or all means and
+	◦ the right to market, either in consideration of a fee, or free of charge, including renting, one or more copies of the Contribution by any means. 
+
+(b) To the extent that any of the IP Rights in Section 2.1(a) cannot be assigned by You to Us, You grant to Us a, worldwide, exclusive, royalty-free, transferable, irrevocable, for the IP rights duration, license under such non-assigned rights as listed in Section 2.1(a), with rights to sublicense through multiple tiers of sublicensees, to practice such non-assigned IP Right provided that this license is conditioned upon compliance with Section 2.3 (“Outbound License”).
+
+(c) To the extent that any of the IP Rights in Section 2.1(a) can neither be assigned nor licensed by You to Us as in Section 2.1(b), You irrevocably waive and agree never to assert such rights against Us, any of our successors in interest, or any of our licensees, either direct or indirect; provided that this license is conditioned upon compliance with Section 2.3 (“Outbound License”).
+
+(d) Upon such transfer of IP Rights to Us, to the maximum extent possible, We immediately grant to You a, worldwide, non-exclusive, royalty-free, transferable, irrevocable license under such IP Rights covering the Contribution, for the duration of the IP Rights, with rights to sublicense through multiple tiers of sublicensees, to practice the rights listed in section 2.1 (a) attached to the Contribution. The intention is that this license will be as broad as possible and to provide You with IP Rights as similar as possible to the IP Rights that You transferred. This license back is limited to the Contribution and does not provide any rights to the Material.
+
+2.2 Industrial property
+
+At the Submission Date You:
+	(i) assign to Us Your right to claim for  any industrial property title (patent, utility patent, supplementary protection certificate or any industrial property title) linked to the Contribution ;
+    (ii) grant to Us a worldwide, non-exclusive, transferable, royalty-free, irrevocable license, with the right to sublicense these rights to multiple tiers of sublicensees, for the duration of the IP Rights, for claims or titles (patent, patent claims, utility patent or claims, supplementary protection certificate or claims, or any other industrial property title or claims) which You own, control or have the right to grant, on the Contribution. Rights granted are (i) the rights to make, have made, offer, sell, offer for sale, use, import, export, transship and possess for such uses any product covered by the title/claim, or the product directly obtained by the process covered by the title/claim (ii) use and offer to use any process covered by the title/ claim.
+    (iii) grant to Us the right to otherwise transfer the Contribution and the Contribution in combination with the Material (and portions of such combination).
+
+This license is granted provided that it complies with the terms of Section 2.3 (“Outbound License”).
+
+2.3 Outbound License
+
+If We include Your Contribution or part of it in a Material, We may license the Contribution to third parties under any license whatever the terms and conditions, including under several licenses that would have different terms and conditions. For clarification purposes, such licenses may be qualified as notably, copyleft, free, open source, permissive, commercial, or proprietary licenses. We agree to also license the Contribution under the terms of the license or licenses which We are using for the Material on the Submission Date.
+
+2.4 Moral Rights
+
+Moral Rights remain unaffected to the extent they are recognized and not waivable by applicable law. Notwithstanding, any Contribution shall be Submitted with the indication of Your name as author of the Contribution and the date of its creation.
+
+2.5 Our Rights
+
+You acknowledge that We are not obligated to use Your Contribution - in whole or in part - as part of the Material and may decide to include any Contribution We consider appropriate.
+
+3. Agreement
+
+You confirm that:
+(a) You have the legal authority to enter into this Agreement as regards to the Contributor definition in Section 1.
+(b) You or Your Affiliates (if you are a Legal Entity) own the IP Rights and patent claims covering the Contribution which are required to grant the rights under Section 2 (“Grant of IP Rights”).
+(c) The assignments or grant of rights under Section 2 (“Grant of IP Rights”) does not violate any grant of rights which You or Your Affiliates (if you are a Legal Entity) have made to third parties, including Your employer. 
+(d) You have followed the instructions in :  https://github.com/XXX
+
+The Agreement may cover more than one software project managed by Us.
+
+4. Entry into force
+The Agreement shall take effect from its Effective Date.
+
+5. Disclaimer
+
+EXCEPT FOR THE EXPRESS WARRANTIES IN SECTION 3 (“Agreement”), AND TO THE EXTEND PERMITTED BY LAW, THE CONTRIBUTION IS PROVIDED "AS IS". MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US AND BY US TO YOU.
+
+6. Damage Waiver
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL YOU OR US BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, DAMAGES ARISING OUT OF THIS AGREEMENT.
+
+7. Miscellaneous
+
+7.1
+THIS AGREEMENT IS GOVERNED BY AND CONSTRUED IN ACCORDANCE WITH THE LAWS OF FRANCE EXCLUDING ITS CONFLICTS OF LAW PROVISIONS. UNDER CERTAIN CIRCUMSTANCES, THE GOVERNING LAW IN THIS SECTION MIGHT BE SUPERSEDED BY THE UNITED NATIONS CONVENTION ON CONTRACTS FOR THE INTERNATIONAL SALE OF GOODS ("UN CONVENTION") AND THE PARTIES INTEND TO AVOID THE APPLICATION OF THE UN CONVENTION TO THIS AGREEMENT AND, THUS, EXCLUDE THE APPLICATION OF THE UN CONVENTION IN ITS ENTIRETY TO THIS AGREEMENT.
+IN THE EVENT OF DIFFICULTY CONCERNING THE INTERPRETATION, THE PERFORMANCE OR THE TERMINATION OF THE AGREEMENT, AND UNLESS URGENCY JUSTIFIES SEEKING INTERIM RELIEF FROM A COURT OF COMPETENT JURISDICTION, THE PARTIES SHALL SEEK TO RESOLVE THEIR DISPUTE AMICABLY, IF THE PARTIES ARE UNABLE TO RESOLVE THEIR DISPUTE WITHIN THREE (3) MONTHS FROM THE DATE ON WHICH IT AROSE, THE MATTER SHALL BE REFERRED TO THE COURTS OF COMPETENT JURISDICTION IN PARIS BY THE PARTY THAT FIRST TAKES ACTION.
+
+7.2
+This Agreement sets out the entire agreement between You and Us for Your Contributions to Us and overrides all other agreements or understandings whether written or oral, between You and Us and having the same purpose.
+
+7.3
+If You or We assign the rights or obligations received through this Agreement to a third party, as a condition of the assignment, that third party must agree in writing to abide by all the rights and obligations in the Agreement.
+
+7.4
+The failure of either party to require performance by the other party of any provision of this Agreement in one situation shall not affect the right of a party to require such performance at any time in the future. A waiver of performance under a provision in one situation shall not be considered a waiver of the performance of the provision in the future or a waiver of the provision in its entirety.
+
+7.5
+In the event that one or more of the provisions hereof were to conflict with a current or future applicable act or legislative text, said act or legislative text shall prevail and the Parties shall make the necessary amendments so as to comply with said act or legislative text. All other provisions shall remain effective and the Parties shall use best endeavours to find an acceptable alternative solution compatible with the spirit of this Agreement.

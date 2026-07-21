@@ -48,28 +48,28 @@ module \tb_addr
   wire width 4 $flatten\dut.$0\sum[3:0]
   attribute \src "./addr.v:10.3-12.6"
   wire $flatten\dut.$0\c_out[0:0]
-  wire width 4 $auto$fault_rtlil.cc:293:execute$8
+  wire width 4 $auto$fault_rtlil.cc:298:execute$8
   wire width 4 input 1 \dut.a_fault
   attribute \keep 1
   wire input 2 \dut.a_fault_sel
   wire width 4 input 3 \dut.a_fault_shift
   wire width 4 \dut.a_fault_vec
   wire $auto$rtlil.cc:3392:Ne$12
-  wire width 4 $auto$fault_rtlil.cc:293:execute$14
+  wire width 4 $auto$fault_rtlil.cc:298:execute$14
   wire width 4 input 4 \dut.b_fault
   attribute \keep 1
   wire input 5 \dut.b_fault_sel
   wire width 4 input 6 \dut.b_fault_shift
   wire width 4 \dut.b_fault_vec
   wire $auto$rtlil.cc:3392:Ne$18
-  wire width 4 $auto$fault_rtlil.cc:293:execute$20
+  wire width 4 $auto$fault_rtlil.cc:298:execute$20
   wire width 4 input 7 \a_fault
   attribute \keep 1
   wire input 8 \a_fault_sel
   wire width 4 input 9 \a_fault_shift
   wire width 4 \a_fault_vec
   wire $auto$rtlil.cc:3392:Ne$24
-  wire width 4 $auto$fault_rtlil.cc:293:execute$26
+  wire width 4 $auto$fault_rtlil.cc:298:execute$26
   wire width 4 input 10 \b_fault
   attribute \keep 1
   wire input 11 \b_fault_sel
@@ -89,18 +89,18 @@ module \tb_addr
   wire $auto$rtlil.cc:3390:Le$49
   wire $auto$rtlil.cc:3384:And$50
   wire $auto$rtlil.cc:3385:Or$53
-  wire width 2 \global_fault_cnt
+  wire width 3 \global_fault_cnt
   attribute \keep 1
-  attribute \init 2'00
-  wire width 2 $auto$fault_rtlil.cc:477:execute$54
-  wire width 2 $auto$rtlil.cc:3397:Add$57
-  wire width 2 $auto$rtlil.cc:3472:Mux$58
-  wire width 2 $auto$rtlil.cc:3397:Add$61
-  wire width 2 $auto$rtlil.cc:3472:Mux$62
-  wire width 2 $auto$rtlil.cc:3397:Add$65
-  wire width 2 $auto$rtlil.cc:3472:Mux$66
-  wire width 2 $auto$rtlil.cc:3397:Add$69
-  wire width 2 \fault_cnt_incr
+  attribute \init 3'000
+  wire width 3 $auto$fault_rtlil.cc:519:execute$54
+  wire width 3 $auto$rtlil.cc:3397:Add$57
+  wire width 3 $auto$rtlil.cc:3472:Mux$58
+  wire width 3 $auto$rtlil.cc:3397:Add$61
+  wire width 3 $auto$rtlil.cc:3472:Mux$62
+  wire width 3 $auto$rtlil.cc:3397:Add$65
+  wire width 3 $auto$rtlil.cc:3472:Mux$66
+  wire width 3 $auto$rtlil.cc:3397:Add$69
+  wire width 3 \fault_cnt_incr
   wire $auto$rtlil.cc:3390:Le$74
   attribute \src "./addr.v:11.21-11.26"
   cell $add $flatten\dut.$add$./addr.v:11$2
@@ -150,7 +150,7 @@ module \tb_addr
   cell $scopeinfo \dut
     parameter \TYPE "module"
   end
-  cell $shl $auto$fault_rtlil.cc:306:execute$9
+  cell $shl $auto$fault_rtlil.cc:311:execute$9
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
@@ -160,28 +160,28 @@ module \tb_addr
     connect \B \dut.a_fault_shift
     connect \Y \dut.a_fault_vec
   end
-  cell $mux $auto$fault_rtlil.cc:361:execute$10
+  cell $mux $auto$fault_rtlil.cc:396:execute$10
     parameter \WIDTH 4
-    connect \A $auto$fault_rtlil.cc:293:execute$8
-    connect \B \dut.a_fault
+    connect \A { $auto$fault_rtlil.cc:298:execute$8 [3] $auto$fault_rtlil.cc:298:execute$8 [0] $auto$fault_rtlil.cc:298:execute$8 [1] $auto$fault_rtlil.cc:298:execute$8 [2] }
+    connect \B { \dut.a_fault [3] \dut.a_fault [0] \dut.a_fault [1] \dut.a_fault [2] }
     connect \S \dut.a_fault_sel
-    connect \Y \dut.a
+    connect \Y { \dut.a [3] \dut.a [0] \dut.a [1] \dut.a [2] }
   end
-  cell $ne $auto$fault_rtlil.cc:400:execute$11
+  cell $ne $auto$fault_rtlil.cc:438:execute$11
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
     parameter \B_WIDTH 4
     parameter \Y_WIDTH 1
     connect \A \dut.a_fault
-    connect \B $auto$fault_rtlil.cc:293:execute$8
+    connect \B $auto$fault_rtlil.cc:298:execute$8
     connect \Y $auto$rtlil.cc:3392:Ne$12
   end
-  cell $assume $auto$fault_rtlil.cc:401:execute$13
+  cell $assume $auto$fault_rtlil.cc:439:execute$13
     connect \A $auto$rtlil.cc:3392:Ne$12
     connect \EN 1'1
   end
-  cell $shl $auto$fault_rtlil.cc:306:execute$15
+  cell $shl $auto$fault_rtlil.cc:311:execute$15
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
@@ -191,28 +191,28 @@ module \tb_addr
     connect \B \dut.b_fault_shift
     connect \Y \dut.b_fault_vec
   end
-  cell $mux $auto$fault_rtlil.cc:361:execute$16
+  cell $mux $auto$fault_rtlil.cc:396:execute$16
     parameter \WIDTH 4
-    connect \A $auto$fault_rtlil.cc:293:execute$14
-    connect \B \dut.b_fault
+    connect \A { $auto$fault_rtlil.cc:298:execute$14 [2:0] $auto$fault_rtlil.cc:298:execute$14 [3] }
+    connect \B { \dut.b_fault [2:0] \dut.b_fault [3] }
     connect \S \dut.b_fault_sel
-    connect \Y \dut.b
+    connect \Y { \dut.b [2:0] \dut.b [3] }
   end
-  cell $ne $auto$fault_rtlil.cc:400:execute$17
+  cell $ne $auto$fault_rtlil.cc:438:execute$17
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
     parameter \B_WIDTH 4
     parameter \Y_WIDTH 1
     connect \A \dut.b_fault
-    connect \B $auto$fault_rtlil.cc:293:execute$14
+    connect \B $auto$fault_rtlil.cc:298:execute$14
     connect \Y $auto$rtlil.cc:3392:Ne$18
   end
-  cell $assume $auto$fault_rtlil.cc:401:execute$19
+  cell $assume $auto$fault_rtlil.cc:439:execute$19
     connect \A $auto$rtlil.cc:3392:Ne$18
     connect \EN 1'1
   end
-  cell $shl $auto$fault_rtlil.cc:306:execute$21
+  cell $shl $auto$fault_rtlil.cc:311:execute$21
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
@@ -222,28 +222,28 @@ module \tb_addr
     connect \B \a_fault_shift
     connect \Y \a_fault_vec
   end
-  cell $mux $auto$fault_rtlil.cc:361:execute$22
+  cell $mux $auto$fault_rtlil.cc:396:execute$22
     parameter \WIDTH 4
-    connect \A $auto$fault_rtlil.cc:293:execute$20
+    connect \A $auto$fault_rtlil.cc:298:execute$20
     connect \B \a_fault
     connect \S \a_fault_sel
     connect \Y \a
   end
-  cell $ne $auto$fault_rtlil.cc:400:execute$23
+  cell $ne $auto$fault_rtlil.cc:438:execute$23
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
     parameter \B_WIDTH 4
     parameter \Y_WIDTH 1
     connect \A \a_fault
-    connect \B $auto$fault_rtlil.cc:293:execute$20
+    connect \B $auto$fault_rtlil.cc:298:execute$20
     connect \Y $auto$rtlil.cc:3392:Ne$24
   end
-  cell $assume $auto$fault_rtlil.cc:401:execute$25
+  cell $assume $auto$fault_rtlil.cc:439:execute$25
     connect \A $auto$rtlil.cc:3392:Ne$24
     connect \EN 1'1
   end
-  cell $shl $auto$fault_rtlil.cc:306:execute$27
+  cell $shl $auto$fault_rtlil.cc:311:execute$27
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
@@ -253,28 +253,28 @@ module \tb_addr
     connect \B \b_fault_shift
     connect \Y \b_fault_vec
   end
-  cell $mux $auto$fault_rtlil.cc:361:execute$28
+  cell $mux $auto$fault_rtlil.cc:396:execute$28
     parameter \WIDTH 4
-    connect \A $auto$fault_rtlil.cc:293:execute$26
+    connect \A $auto$fault_rtlil.cc:298:execute$26
     connect \B \b_fault
     connect \S \b_fault_sel
     connect \Y \b
   end
-  cell $ne $auto$fault_rtlil.cc:400:execute$29
+  cell $ne $auto$fault_rtlil.cc:438:execute$29
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 4
     parameter \B_WIDTH 4
     parameter \Y_WIDTH 1
     connect \A \b_fault
-    connect \B $auto$fault_rtlil.cc:293:execute$26
+    connect \B $auto$fault_rtlil.cc:298:execute$26
     connect \Y $auto$rtlil.cc:3392:Ne$30
   end
-  cell $assume $auto$fault_rtlil.cc:401:execute$31
+  cell $assume $auto$fault_rtlil.cc:439:execute$31
     connect \A $auto$rtlil.cc:3392:Ne$30
     connect \EN 1'1
   end
-  cell $add $auto$fault_rtlil.cc:444:execute$33
+  cell $add $auto$fault_rtlil.cc:486:execute$33
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 32
@@ -284,12 +284,12 @@ module \tb_addr
     connect \B 1'1
     connect \Y $auto$rtlil.cc:3397:Add$34
   end
-  cell $ff $auto$fault_rtlil.cc:444:execute$32
+  cell $ff $auto$fault_rtlil.cc:486:execute$32
     parameter \WIDTH 32
     connect \D $auto$rtlil.cc:3397:Add$34
     connect \Q \global_fault_clock
   end
-  cell $or $auto$fault_rtlil.cc:449:execute$35
+  cell $or $auto$fault_rtlil.cc:491:execute$35
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -299,7 +299,7 @@ module \tb_addr
     connect \B \dut.a_fault_sel
     connect \Y $auto$rtlil.cc:3385:Or$36
   end
-  cell $or $auto$fault_rtlil.cc:449:execute$37
+  cell $or $auto$fault_rtlil.cc:491:execute$37
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -309,7 +309,7 @@ module \tb_addr
     connect \B \dut.b_fault_sel
     connect \Y $auto$rtlil.cc:3385:Or$38
   end
-  cell $or $auto$fault_rtlil.cc:449:execute$39
+  cell $or $auto$fault_rtlil.cc:491:execute$39
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -319,7 +319,7 @@ module \tb_addr
     connect \B \a_fault_sel
     connect \Y $auto$rtlil.cc:3385:Or$40
   end
-  cell $or $auto$fault_rtlil.cc:449:execute$41
+  cell $or $auto$fault_rtlil.cc:491:execute$41
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -329,14 +329,14 @@ module \tb_addr
     connect \B \b_fault_sel
     connect \Y $auto$rtlil.cc:3385:Or$42
   end
-  cell $not $auto$fault_rtlil.cc:451:execute$43
+  cell $not $auto$fault_rtlil.cc:493:execute$43
     parameter \A_SIGNED 0
     parameter \A_WIDTH 1
     parameter \Y_WIDTH 1
     connect \A $auto$rtlil.cc:3385:Or$42
     connect \Y $auto$rtlil.cc:3337:Not$44
   end
-  cell $ge $auto$fault_rtlil.cc:455:execute$46
+  cell $ge $auto$fault_rtlil.cc:497:execute$46
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 32
@@ -346,7 +346,7 @@ module \tb_addr
     connect \B 1
     connect \Y $auto$rtlil.cc:3395:Ge$47
   end
-  cell $le $auto$fault_rtlil.cc:456:execute$48
+  cell $le $auto$fault_rtlil.cc:498:execute$48
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 32
@@ -356,7 +356,7 @@ module \tb_addr
     connect \B 1
     connect \Y $auto$rtlil.cc:3390:Le$49
   end
-  cell $and $auto$fault_rtlil.cc:454:execute$45
+  cell $and $auto$fault_rtlil.cc:496:execute$45
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -366,7 +366,7 @@ module \tb_addr
     connect \B $auto$rtlil.cc:3390:Le$49
     connect \Y $auto$rtlil.cc:3384:And$50
   end
-  cell $or $auto$fault_rtlil.cc:459:execute$52
+  cell $or $auto$fault_rtlil.cc:501:execute$52
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
     parameter \A_WIDTH 1
@@ -376,119 +376,119 @@ module \tb_addr
     connect \B $auto$rtlil.cc:3337:Not$44
     connect \Y $auto$rtlil.cc:3385:Or$53
   end
-  cell $assume $auto$fault_rtlil.cc:458:execute$51
+  cell $assume $auto$fault_rtlil.cc:500:execute$51
     connect \A $auto$rtlil.cc:3385:Or$53
     connect \EN 1'1
   end
-  cell $add $auto$fault_rtlil.cc:486:execute$56
+  cell $add $auto$fault_rtlil.cc:528:execute$56
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
+    parameter \A_WIDTH 3
     parameter \B_WIDTH 1
-    parameter \Y_WIDTH 2
-    connect \A 2'00
+    parameter \Y_WIDTH 3
+    connect \A 3'000
     connect \B 1'1
     connect \Y $auto$rtlil.cc:3397:Add$57
   end
-  cell $mux $auto$fault_rtlil.cc:485:execute$55
-    parameter \WIDTH 2
-    connect \A 2'00
+  cell $mux $auto$fault_rtlil.cc:527:execute$55
+    parameter \WIDTH 3
+    connect \A 3'000
     connect \B $auto$rtlil.cc:3397:Add$57
     connect \S \dut.a_fault_sel
     connect \Y $auto$rtlil.cc:3472:Mux$58
   end
-  cell $add $auto$fault_rtlil.cc:486:execute$60
+  cell $add $auto$fault_rtlil.cc:528:execute$60
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
+    parameter \A_WIDTH 3
     parameter \B_WIDTH 1
-    parameter \Y_WIDTH 2
+    parameter \Y_WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$58
     connect \B 1'1
     connect \Y $auto$rtlil.cc:3397:Add$61
   end
-  cell $mux $auto$fault_rtlil.cc:485:execute$59
-    parameter \WIDTH 2
+  cell $mux $auto$fault_rtlil.cc:527:execute$59
+    parameter \WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$58
     connect \B $auto$rtlil.cc:3397:Add$61
     connect \S \dut.b_fault_sel
     connect \Y $auto$rtlil.cc:3472:Mux$62
   end
-  cell $add $auto$fault_rtlil.cc:486:execute$64
+  cell $add $auto$fault_rtlil.cc:528:execute$64
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
+    parameter \A_WIDTH 3
     parameter \B_WIDTH 1
-    parameter \Y_WIDTH 2
+    parameter \Y_WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$62
     connect \B 1'1
     connect \Y $auto$rtlil.cc:3397:Add$65
   end
-  cell $mux $auto$fault_rtlil.cc:485:execute$63
-    parameter \WIDTH 2
+  cell $mux $auto$fault_rtlil.cc:527:execute$63
+    parameter \WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$62
     connect \B $auto$rtlil.cc:3397:Add$65
     connect \S \a_fault_sel
     connect \Y $auto$rtlil.cc:3472:Mux$66
   end
-  cell $add $auto$fault_rtlil.cc:486:execute$68
+  cell $add $auto$fault_rtlil.cc:528:execute$68
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
+    parameter \A_WIDTH 3
     parameter \B_WIDTH 1
-    parameter \Y_WIDTH 2
+    parameter \Y_WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$66
     connect \B 1'1
     connect \Y $auto$rtlil.cc:3397:Add$69
   end
-  cell $mux $auto$fault_rtlil.cc:485:execute$67
-    parameter \WIDTH 2
+  cell $mux $auto$fault_rtlil.cc:527:execute$67
+    parameter \WIDTH 3
     connect \A $auto$rtlil.cc:3472:Mux$66
     connect \B $auto$rtlil.cc:3397:Add$69
     connect \S \b_fault_sel
     connect \Y \fault_cnt_incr
   end
-  cell $add $auto$fault_rtlil.cc:494:execute$71
+  cell $add $auto$fault_rtlil.cc:536:execute$71
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
-    parameter \B_WIDTH 2
-    parameter \Y_WIDTH 2
-    connect \A $auto$fault_rtlil.cc:477:execute$54
+    parameter \A_WIDTH 3
+    parameter \B_WIDTH 3
+    parameter \Y_WIDTH 3
+    connect \A $auto$fault_rtlil.cc:519:execute$54
     connect \B \fault_cnt_incr
     connect \Y \global_fault_cnt
   end
-  cell $ff $auto$fault_rtlil.cc:497:execute$72
-    parameter \WIDTH 2
+  cell $ff $auto$fault_rtlil.cc:539:execute$72
+    parameter \WIDTH 3
     connect \D \global_fault_cnt
-    connect \Q $auto$fault_rtlil.cc:477:execute$54
+    connect \Q $auto$fault_rtlil.cc:519:execute$54
   end
-  cell $le $auto$fault_rtlil.cc:503:execute$73
+  cell $le $auto$fault_rtlil.cc:545:execute$73
     parameter \A_SIGNED 0
     parameter \B_SIGNED 0
-    parameter \A_WIDTH 2
-    parameter \B_WIDTH 2
+    parameter \A_WIDTH 3
+    parameter \B_WIDTH 3
     parameter \Y_WIDTH 1
     connect \A \global_fault_cnt
-    connect \B 2'01
+    connect \B 3'001
     connect \Y $auto$rtlil.cc:3390:Le$74
   end
-  cell $assume $auto$fault_rtlil.cc:504:execute$75
+  cell $assume $auto$fault_rtlil.cc:546:execute$75
     connect \A $auto$rtlil.cc:3390:Le$74
     connect \EN 1'1
   end
-  connect $auto$fault_rtlil.cc:293:execute$20 4'0001
-  connect $auto$fault_rtlil.cc:293:execute$26 4'0001
+  connect $auto$fault_rtlil.cc:298:execute$20 4'0001
+  connect $auto$fault_rtlil.cc:298:execute$26 4'0001
   connect \c_in 1'0
   connect \clk 1'0
-  connect $auto$fault_rtlil.cc:293:execute$8 [2] 1'0
-  connect $auto$fault_rtlil.cc:293:execute$8 [1] 1'0
-  connect $auto$fault_rtlil.cc:293:execute$8 [0] 1'0
-  connect $auto$fault_rtlil.cc:293:execute$14 [3] 1'0
+  connect $auto$fault_rtlil.cc:298:execute$8 [2] 1'0
+  connect $auto$fault_rtlil.cc:298:execute$8 [1] 1'0
+  connect $auto$fault_rtlil.cc:298:execute$8 [0] 1'0
+  connect $auto$fault_rtlil.cc:298:execute$14 [3] 1'0
   connect \dut.clk 1'0
-  connect $auto$fault_rtlil.cc:293:execute$8 [3] 1'0
+  connect $auto$fault_rtlil.cc:298:execute$8 [3] 1'0
   connect \dut.c_in 1'0
-  connect $auto$fault_rtlil.cc:293:execute$14 [2:0] 3'000
+  connect $auto$fault_rtlil.cc:298:execute$14 [2:0] 3'000
   connect \c_out \dut.c_out
   connect \sum \dut.sum
 end

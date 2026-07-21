@@ -100,6 +100,10 @@ podman build --tag uarchifi -f Dockerfile .
 docker build --tag uarchifi -f Dockerfile .
 ```
 
+```
+singularity build uarchifi.sif uarchifi.sdef
+```
+
 3) **Spin up the container and attach the working directory:**
 
 ```
@@ -110,6 +114,10 @@ podman run -it --name uarchifi -v <work_dir>:/root/work -w /root/work uarchifi
 docker run -it --name uarchifi -v <work_dir>:/root/work -w /root/work uarchifi 
 ```
 
+```
+singularity shell uarchifi.sif
+```
+
 4) **(optional) Run tests:**
 
 While inside the container:
@@ -117,6 +125,14 @@ While inside the container:
 ```
 cd /src
 pip install pytest pytest-cov
+pytest -v --tb=line --yosys-variant=0.61 ./tests/passes
+pytest -v --tb=line ./tests/tooling/
+```
+
+For Singularity/Apptainer since the internal FS is read only we have to do :
+
+```
+pwd %check to be in this repo folder
 pytest -v --tb=line --yosys-variant=0.61 ./tests/passes
 pytest -v --tb=line ./tests/tooling/
 ```
@@ -225,10 +241,7 @@ write_rtlil out/<design>.il
 read_rtlil out/<design>.il
 
 # Convert async logic (REQUIRED)
-
-select t:$check
 async2sync
-select -clear
 
 # Run simulation
 sim -zinit \
@@ -429,7 +442,7 @@ fault_rtlil -bypass
 ---
 ### Why `flatten` is important
 
->[!NOTE]
+>[!NOTE] Why `flatten` is Important
 >
 >Required for:
 >
@@ -486,7 +499,7 @@ SMT2 / BTOR2 (Formal Verification)
 
 ## Common Pitfalls
 
->[!CAUTION]
+>[!CAUTION] Common Pitfalls
 >
 >* Forgetting `async2sync` → incorrect simulation/formal behavior
 >* Overly broad `select` → excessive fault injection
@@ -497,7 +510,7 @@ SMT2 / BTOR2 (Formal Verification)
 
 ## Recommended Workflow Checks
 
->[!TIP]
+>[!TIP] Recommended Workflow Checks
 >
 >* Run `hierarchy -check` during preparation
 >* Use small simulation cycles first
@@ -593,7 +606,7 @@ For each iteration:
 
 ---
 
->[!NOTE]
+>[!NOTE] Notes
 >
 >* The constraint file (`constr.smtc`) is incrementally updated across iterations
 >* Debug mode (`--debug`) streams solver output directly to the terminal

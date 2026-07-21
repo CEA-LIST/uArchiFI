@@ -14,7 +14,7 @@ delete -input; setundef -undriven -zero
 
 select -clear;
 
-select tb_addr.dut/a tb_addr.dut/b
+select tb_addr.dut/a
 
 setattr -set fault 1
 
@@ -22,9 +22,9 @@ yosys cd;
 
 yosys flatten
 
-select n:*a
+select a:fault=1
 
-fault_rtlil -cnt 50 -timing 1:2
+fault_rtlil -cnt 1 -timing 1:2
 
 write_rtlil result.rtlil
 

@@ -15,6 +15,8 @@
 # limitations under the License.
 
 import json
+import os
+import signal
 import subprocess
 import time
 from pathlib import Path
@@ -31,28 +33,82 @@ from tooling.iterator.runner import (
 
 # Helpers
 
+class FakeProc:
+    """Minimal stand-in for subprocess.Popen."""
+
+    def __init__(self, stdout="OK", stderr="", returncode=0, timeout=False, pid=4242):
+        self._stdout = stdout
+        self._stderr = stderr
+        self.returncode = returncode
+        self._timeout = timeout
+        self.pid = pid
+        self.communicate_calls = 0
+
+    def communicate(self, timeout=None):
+        self.communicate_calls += 1
+        # First call raises if we're simulating a hang; the post-kill call returns.
+        if self._timeout and self.communicate_calls == 1:
+            raise subprocess.TimeoutExpired(cmd="yosys-smtbmc", timeout=timeout)
+        return self._stdout, self._stderr
+
+
 @pytest.fixture
 def cli_runner():
     return CliRunner()
 
+
 @pytest.fixture
-def mock_subprocess_run(monkeypatch):
-    def _mock(stdout="OK", returncode=0):
-        def fake_run(*args, **kwargs):
-            return subprocess.CompletedProcess(
-                args=args,
-                returncode=returncode,
-                stdout=stdout,
-                stderr="",
-            )
-        monkeypatch.setattr(subprocess, "run", fake_run)
-    return _mock
+def fake_popen(monkeypatch):
+    """Patch Popen; returns a dict holding the proc + captured cmd."""
+    state = {}
+
+    def _install(stdout="OK", stderr="", returncode=0, timeout=False):
+        proc = FakeProc(stdout=stdout, stderr=stderr,
+                        returncode=returncode, timeout=timeout)
+        state["proc"] = proc
+
+        def fake_popen(cmd, *args, **kwargs):
+            state["cmd"] = cmd
+            state["kwargs"] = kwargs
+            return proc
+
+        monkeypatch.setattr(subprocess, "Popen", fake_popen)
+        return state
+
+    return _install
+
+
+@pytest.fixture
+def fake_killpg(monkeypatch):
+    """Record os.killpg calls instead of signalling a real process group."""
+    calls = []
+    monkeypatch.setattr(os, "killpg", lambda pid, sig: calls.append((pid, sig)))
+    return calls
+
 
 @pytest.fixture
 def mock_cex(monkeypatch):
     fake = Mock(return_value={"signal": ["a", "b"]})
     monkeypatch.setattr("tooling.iterator.cex_iterator.pipeline", fake)
     return fake
+
+
+def make_iterator(tmp_path, **overrides):
+    kwargs = dict(
+        base_dir=tmp_path,
+        iterations=1,
+        single_timeout=1,
+        global_timeout=1,
+        smtlib_input=tmp_path / "f.smt2",
+        debug=False,
+        time_range="0:10",
+        cycle_width=10,
+        solver="yices",
+        bmc_depth="10",
+    )
+    kwargs.update(overrides)
+    return Iterator(**kwargs)
+
 
 # to_json_safe
 
@@ -67,6 +123,7 @@ def test_to_json_safe_basic():
     assert result["b"] == [1, 2]
     assert result["c"][0]["x"] == 1
 
+
 # save_results
 
 def test_save_results(tmp_path):
@@ -80,58 +137,86 @@ def test_save_results(tmp_path):
     content = json.loads(output_file.read_text())
     assert content[0]["status"] == "ok"
 
+
 # Iterator.run_model_checker
 
-def test_run_model_checker_success(tmp_path, monkeypatch, mock_subprocess_run):
-    mock_subprocess_run(stdout="OK")
-    it = Iterator(
-        base_dir=tmp_path,
-        iterations=1,
-        single_timeout=1,
-        global_timeout=1,
-        smtlib_input=tmp_path / "file.smt2",
-        debug=False,
-        time_range="0:10",
-        cycle_width=10,
-        solver="yices",
-        bmc_depth="10",
-    )
+def test_run_model_checker_success(tmp_path, fake_popen):
+    state = fake_popen(stdout="OK")
+    it = make_iterator(tmp_path)
+
     code, stdout, stderr = it.run_model_checker(tmp_path)
+
     assert code == 0
     assert stdout == "OK"
+    assert state["proc"].communicate_calls == 1
+
+
+def test_run_model_checker_uses_new_session(tmp_path, fake_popen):
+    """Process group isolation is required for killpg to work."""
+    state = fake_popen()
+    it = make_iterator(tmp_path)
+
+    it.run_model_checker(tmp_path)
+
+    assert state["kwargs"].get("start_new_session") is True
+
+
+def test_run_model_checker_passes_single_timeout(tmp_path, monkeypatch):
+    seen = {}
+
+    class RecordingProc(FakeProc):
+        def communicate(self, timeout=None):
+            seen["timeout"] = timeout
+            return super().communicate(timeout=timeout)
+
+    monkeypatch.setattr(subprocess, "Popen",
+                        lambda *a, **k: RecordingProc())
+    it = make_iterator(tmp_path, single_timeout=3)
+
+    it.run_model_checker(tmp_path)
+
+    assert seen["timeout"] == 3 * 60  # minutes -> seconds
+
+
+def test_run_model_checker_timeout_kills_process_group(tmp_path, fake_popen, fake_killpg):
+    state = fake_popen(stdout="partial", stderr="boom", timeout=True)
+    it = make_iterator(tmp_path)
+
+    with pytest.raises(subprocess.TimeoutExpired) as excinfo:
+        it.run_model_checker(tmp_path)
+
+    # The group was killed exactly once, with SIGKILL, on the child's pid.
+    assert fake_killpg == [(state["proc"].pid, signal.SIGKILL)]
+    # Output was still drained after the kill and attached to the exception.
+    assert state["proc"].communicate_calls == 2
+    assert excinfo.value.stdout == "partial"
+    assert excinfo.value.stderr == "boom"
+
+
+def test_run_model_checker_no_kill_on_success(tmp_path, fake_popen, fake_killpg):
+    fake_popen(stdout="OK")
+    it = make_iterator(tmp_path)
+
+    it.run_model_checker(tmp_path)
+
+    assert fake_killpg == []
+
 
 # run_iteration cases
 
-def test_run_iteration_cex(tmp_path, monkeypatch, mock_cex):
-    def fake_run(*args, **kwargs):
-        return subprocess.CompletedProcess(
-            args=args,
-            returncode=0,
-            stdout="BMC failed\n",
-            stderr="",
-        )
-    monkeypatch.setattr(subprocess, "run", fake_run)
-    it = Iterator(
-        tmp_path, 1, 1, 1, tmp_path / "f.smt2",
-        False, "0:10", 10, "yices", "10"
-    )
+def test_run_iteration_cex(tmp_path, fake_popen, mock_cex):
+    fake_popen(stdout="BMC failed\n")
+    it = make_iterator(tmp_path)
+
     result = it.run_iteration(0)
+
     assert result["status"] == "cex_created"
     mock_cex.assert_called_once()
 
-def test_run_iteration_no_cex(tmp_path, monkeypatch):
-    def fake_run(*args, **kwargs):
-        return subprocess.CompletedProcess(
-            args=args,
-            returncode=0,
-            stdout="All good\n",
-            stderr="",
-        )
-    monkeypatch.setattr(subprocess, "run", fake_run)
-    it = Iterator(
-        tmp_path, 1, 1, 1, tmp_path / "f.smt2",
-        False, "0:10", 10, "yices", "10"
-    )
+
+def test_run_iteration_no_cex(tmp_path, fake_popen):
+    fake_popen(stdout="All good\n")
+    it = make_iterator(tmp_path)
 
     result = it.run_iteration(0)
 
@@ -139,41 +224,31 @@ def test_run_iteration_no_cex(tmp_path, monkeypatch):
     assert result["cex_changes"] is None
 
 
-def test_run_iteration_timeout(tmp_path, monkeypatch):
-    def fake_run(*args, **kwargs):
-        raise subprocess.TimeoutExpired(cmd="cmd", timeout=1)
-
-    monkeypatch.setattr(subprocess, "run", fake_run)
-
-    it = Iterator(
-        tmp_path, 1, 1, 1, tmp_path / "f.smt2",
-        False, "0:10", 10, "yices", "10"
-    )
+def test_run_iteration_timeout(tmp_path, fake_popen, fake_killpg):
+    state = fake_popen(timeout=True)
+    it = make_iterator(tmp_path)
 
     result = it.run_iteration(0)
 
     assert result["status"] == "timeout"
+    assert result["cex_changes"] is None
+    # The hung model checker must not be left running.
+    assert fake_killpg == [(state["proc"].pid, signal.SIGKILL)]
 
 
 def test_run_iteration_error(tmp_path, monkeypatch):
-    def fake_run(*args, **kwargs):
+    def fake_popen(*args, **kwargs):
         raise subprocess.CalledProcessError(returncode=1, cmd="cmd")
 
-    monkeypatch.setattr(subprocess, "run", fake_run)
-
-    it = Iterator(
-        tmp_path, 1, 1, 1, tmp_path / "f.smt2",
-        False, "0:10", 10, "yices", "10"
-    )
+    monkeypatch.setattr(subprocess, "Popen", fake_popen)
+    it = make_iterator(tmp_path)
 
     result = it.run_iteration(0)
 
     assert result["status"] == "error"
 
 
-# -------------------------
 # run loop behavior
-# -------------------------
 
 def test_run_stops_on_timeout(tmp_path, monkeypatch):
     calls = []
@@ -184,11 +259,7 @@ def test_run_stops_on_timeout(tmp_path, monkeypatch):
 
     monkeypatch.setattr(Iterator, "run_iteration", fake_iteration)
 
-    it = Iterator(
-        tmp_path, 5, 1, 1, tmp_path / "f.smt2",
-        False, "0:10", 10, "yices", "10"
-    )
-
+    it = make_iterator(tmp_path, iterations=5)
     it.run()
 
     assert len(calls) == 1  # stops early
@@ -200,19 +271,13 @@ def test_global_timeout(tmp_path, monkeypatch):
 
     monkeypatch.setattr(Iterator, "run_iteration", fake_iteration)
 
-    it = Iterator(
-        tmp_path, 5, 1, 0, tmp_path / "f.smt2",  # 0h timeout
-        False, "0:10", 10, "yices", "10"
-    )
-
+    it = make_iterator(tmp_path, iterations=5, global_timeout=0)
     it.start_time = time.time() - 9999  # force timeout
 
     assert it.global_timeout_reached() is True
 
 
-# -------------------------
 # CLI tests
-# -------------------------
 
 def test_cli_runs(tmp_path, cli_runner, monkeypatch):
     def fake_run(self):
